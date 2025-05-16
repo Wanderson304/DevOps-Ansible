@@ -1,4 +1,5 @@
 ---
+- name: Desligar servidores
 - hosts: servidores
   gather_facts: no
   tasks:
