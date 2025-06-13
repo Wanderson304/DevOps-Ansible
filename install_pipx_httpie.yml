@@ -1,0 +1,21 @@
+#Instalção do pipx no Ubuntu e centos 
+
+- name: instalação do pipx e httpie
+  hosts: servidores
+
+  tasks:
+    - name: Instalação do pipx no Ubuntu
+      become: yes
+      package:
+        name: pipx
+        state: present
+      when: ansible_distribution  == 'Ubuntu'
+
+
+  tasks:
+    - name: Instalação do pipx no CentOS
+      become: yes
+      package:
+        name: python-pip
+        state: present
+      when: ansible_distribution  == 'CentOS'
