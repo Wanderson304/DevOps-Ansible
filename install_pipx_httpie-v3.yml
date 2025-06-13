@@ -7,7 +7,6 @@
   vars:
     - pipx: "{{ 'pipx' if ansible_distribution == 'Ubuntu' else 'python-pip'}}"
 
-
   tasks:
     - name: Instalação do pipx no Ubuntu e Cetosi
       become: yes
