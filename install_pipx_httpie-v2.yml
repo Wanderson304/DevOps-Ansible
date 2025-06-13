@@ -1,0 +1,12 @@
+# Instalção do pipx no Ubuntu e centOS usando condição if
+
+---
+- name: instalação do pipx e httpie
+  hosts: servidores
+
+  tasks:
+    - name: Instalação do pipx no Ubuntu e Cetosi
+      become: yes
+      package:
+        name:  "{{ 'pipx' if ansible_distribution == 'Ubuntu' else 'python-pip'}}"
+        state: present
