@@ -1,1 +1,18 @@
+# Instalção do pipx no Ubuntu e centOS usando variaveis
+
+---
+- name: instalação do pipx e httpie
+  hosts: servidores
+
+  vars:
+    - pipx: "{{ 'pipx' if ansible_distribution == 'Ubuntu' else 'python-pip'}}"
+
+
+  tasks:
+    - name: Instalação do pipx no Ubuntu e Cetosi
+      become: yes
+      package:
+        name:  "{{pipx}}"
+        state: present
+
 
